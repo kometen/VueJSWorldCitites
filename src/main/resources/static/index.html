@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>VueJS demo</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<style type="text/css">
+[v-cloak]{
+ display:none !important;
+}
+</style>
+</head>
+<body>
+<div id="app01">
+  <p>Enter city or location in the input field</p>
+  <input v-model="message" v-on:keyup.enter="update_message" autofocus="autofocus"/>
+  <button v-on:click="update_message">Search</button>
+  <span v-cloak>
+  <table class="table table-striped">
+  <thead>
+    <tr>
+      <th>City</th>
+      <th class="text-right">Region</th>
+      <th class="text-right">Population</th>
+      <th class="text-right">Latitude</th>
+      <th class="text-right">Lontitude</th>
+      <th class="text-right">Country Code</th>
+      <th class="text-right">Lowercase Name</th>
+      <th class="text-right">#</th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr v-for="location in locations">
+    <td>{{ location.name }}</td>
+    <td class="text-right">{{ location.region }}</td>
+    <td class="text-right">{{ location.population }}</td>
+    <td class="text-right">{{ location.latitude }}</td>
+    <td class="text-right">{{ location.longitude }}</td>
+    <td class="text-right">{{ location.country_code }}</td>
+    <td class="text-right">{{ location.name_lowerCase }}</td>
+    <td class="text-right"><button v-on:click="edit_row(location.id)">Edit</button></td>
+  </tr>
+  </tbody>
+  </span>
+  </table>
+  <p>{{ locations }}</p>
+</div>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap.native/1.1.0/bootstrap-native.min.js"></script>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script src="/js/utils.js"></script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Thymeleaf demo</title>
+</head>
+<body>
+<div id="app01">
+    <p> {{ message }}</p>
+    <input v-model="message"/>
+</div>
+<script th:src="@{https://unpkg.com/vue/dist/vue.js}"></script>
+</body>
+</html>
